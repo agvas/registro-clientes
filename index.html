@@ -549,6 +549,7 @@ function fichaHTML(){
     </div>`;
     h+=cycleCardHTML(c);
     h+=wellnessCardHTML(c);
+    h+=`<button class="btn danger full" data-act="delClient" data-id="${c.id}" style="margin-top:8px">Eliminar cliente</button>`;
   } else if(ui.clientSub==='entrenamientos'){
     h+=`<button class="btn big" data-act="start">${db.draft&&db.draft.clientId===c.id?'Continuar sesión':'Iniciar sesión'}</button>`;
     h+=histHTML(c,ss);
@@ -1295,7 +1296,7 @@ function act(a,ds,t,e){
     case 'newClient':clientForm();break;
     case 'editClient':clientForm(ui.cid);break;
     case 'saveClient':saveClient(ds.id);break;
-    case 'delClient':confirmDlg('Se eliminará el cliente con todas sus sesiones, evaluaciones, ciclos y fotos. No se puede deshacer.','Eliminar',()=>{
+    case 'delClient':confirmDlg('Se eliminará a '+((getClient(ds.id)||{}).name||'este cliente')+' con todas sus sesiones, evaluaciones, ciclos y fotos. No se puede deshacer. Haz un respaldo antes si no estás seguro.','Eliminar',()=>{
       const id=ds.id;
       db.clients=db.clients.filter(c=>c.id!==id);
       db.sessions=db.sessions.filter(s=>s.clientId!==id);
@@ -1461,7 +1462,7 @@ function clientForm(id){
     </div>
     <input type="hidden" id="cf_active" value="${c.active!==false?'1':'0'}">
     <div class="btns"><button class="btn ghost" data-act="closeModal">Cancelar</button><button class="btn" data-act="saveClient" data-id="${id||''}">Guardar</button></div>
-    ${id?`<button class="linkbtn" data-act="delClient" data-id="${id}">Eliminar cliente</button>`:''}`);
+    ${id?`<button class="btn danger full" data-act="delClient" data-id="${id}" style="margin-top:10px">Eliminar cliente</button>`:''}`);
   if(!id)setTimeout(()=>{const i=$('#cf_name');if(i)i.focus()},30);
 }
 function saveClient(id){
