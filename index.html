@@ -151,6 +151,7 @@ details .body{margin-top:10px;padding-top:10px;border-top:1px solid var(--line)}
 .dot{width:9px;height:9px;border-radius:50%;flex:none}
 .dot.g{background:var(--good)}.dot.r{background:var(--danger)}.dot.b{background:var(--accent)}.dot.y{background:#c9951c}.dot.n{background:var(--muted)}
 .soon{color:var(--muted);font-size:13px;margin-top:2px}
+.prevnote{background:var(--accent-soft);color:var(--text);border-radius:10px;padding:8px 10px;margin:6px 0;font-size:14px;line-height:1.35}
 
 .navbar{position:fixed;left:0;right:0;bottom:0;z-index:7;background:var(--card);box-shadow:0 -1px 0 var(--line);display:flex;padding-bottom:env(safe-area-inset-bottom,0px)}
 .navbar button{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;padding:8px 2px 6px;color:var(--muted);font-size:11px;font-weight:600}
@@ -377,7 +378,7 @@ function lastFor(cid,name){
   const n=name.toLowerCase();
   for(const s of clientSessions(cid)){
     const e=s.exercises.find(x=>x.name.toLowerCase()===n);
-    if(e)return {date:s.date,sets:e.sets,rirMode:s.rirMode||'RIR'};
+    if(e)return {date:s.date,sets:e.sets,rirMode:s.rirMode||'RIR',note:(e.note||'').trim()};
   }
   return null;
 }
@@ -691,7 +692,7 @@ function progHTML(c,ss){
     <div class="m" style="margin-top:8px">${METRICS[m]} en ${unit}, mejor serie de cada sesión.${m==='e1rm'?' Fórmula de Epley.':''}</div>`;
   }
   const lastSet=lastFor(c.id,ui.exSel);
-  if(lastSet)h+=`<div class="m" style="margin-top:10px;padding-top:10px;border-top:1px solid var(--line)"><b style="color:var(--text)">Último registro</b> (${fmtDate(lastSet.date)}): ${lastSet.sets.map(s=>fmtSet(s,lastSet.rirMode)).join(' · ')}</div>`;
+  if(lastSet)h+=`<div class="m" style="margin-top:10px;padding-top:10px;border-top:1px solid var(--line)"><b style="color:var(--text)">Último registro</b> (${fmtDate(lastSet.date)}): ${lastSet.sets.map(s=>fmtSet(s,lastSet.rirMode)).join(' · ')}${lastSet.note?`<div style="margin-top:4px">Nota: ${esc(lastSet.note)}</div>`:''}</div>`;
   h+=`</div>`;
   if(base.length>=4&&Math.max(...base.slice(-3))<=Math.max(...base.slice(0,-3))){
     h+=`<div class="banner warn" style="display:block">Posible estancamiento: en las últimas 3 sesiones no superó su mejor marca anterior en este ejercicio.</div>`;
@@ -1093,6 +1094,7 @@ function sessionHTML(){
       <button class="t grow" style="text-align:left" data-act="exHistory" data-n="${esc(ex.name)}">${esc(ex.name)}</button>
       <button class="x" data-act="delEx" data-i="${i}" aria-label="Quitar ejercicio">×</button></div>
     <div class="m prev">${prev?'Anterior ('+fmtDate(prev.date)+'): '+prev.sets.map(st=>fmtSet(st,prev.rirMode)).join('  ·  '):'Primera vez con este ejercicio'}</div>
+    ${prev&&prev.note?`<div class="prevnote"><b>Nota anterior (${fmtDate(prev.date)}):</b> ${esc(prev.note)}</div>`:''}
     <div class="m" style="margin:8px 0 4px">kg · reps · ${mode==='RPE'?'RPE':'RIR'}</div>`;
     ex.sets.forEach((st,j)=>{
       const p=prev&&prev.sets[j];
@@ -1178,6 +1180,11 @@ function exHistoryModal(name){
       <div><span class="num">${fmtNum(recs.bestVolume.vol)}</span><span class="m">Mejor volumen (${fmtDate(recs.bestVolume.date)})</span></div>
       <div><span class="num">${fmtNum(recs.last.w)}×${recs.last.r}</span><span class="m">Última carga (${fmtDate(recs.last.date)})</span></div>
     </div>`;
+  }
+  const n=name.toLowerCase();
+  const notes=clientSessions(cid).map(se=>{const e=se.exercises.find(x=>x.name.toLowerCase()===n);return e&&e.note&&e.note.trim()?{date:se.date,note:e.note.trim()}:null}).filter(Boolean).slice(0,6);
+  if(notes.length){
+    h+=`<div class="t" style="margin:14px 0 6px">Notas anteriores</div>`+notes.map(x=>`<div class="prevnote"><b>${fmtDate(x.date)}:</b> ${esc(x.note)}</div>`).join('');
   }
   h+=`<button class="btn ghost full" data-act="closeModal" style="margin-top:14px">Cerrar</button>`;
   openModal(h);
