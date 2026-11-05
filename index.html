@@ -1016,6 +1016,7 @@ async function reportData(cid){
 }
 
 /* --- pantalla --- */
+const APP_VERSION='9';
 let rpState=null;
 const rpSigned=n=>(n<0?'−':n>0?'+':'')+fmtNum(Math.abs(n));
 function rpLine(pts,label){
@@ -1653,7 +1654,7 @@ function masHTML(){
   h+=`<div class="card"><b class="t">Ciclos y semáforo de carga</b><div class="m">Ábrelo desde la ficha de cada cliente, pestaña Resumen.</div></div>`;
   const tr=db.settings.trainer||{};
   h+=`<button class="card row" data-act="editTrainer"><div class="av">${tr.photo?`<img src="${tr.photo}">`:''}</div><div class="grow"><div class="t">Perfil del entrenador</div><div class="m">${tr.name?esc(tr.name):'Nombre, foto y contacto para el PDF'}</div></div><span class="m">Editar</span></button>`;
-  h+=`<div class="card"><b class="t">Acerca de</b><div class="m">Registro de clientes · funciona sin internet una vez instalada en tu pantalla de inicio. Tus datos solo viven en este teléfono.</div></div>`;
+  h+=`<div class="card"><b class="t">Acerca de</b><div class="m">Registro de clientes · funciona sin internet una vez instalada en tu pantalla de inicio. Tus datos solo viven en este teléfono.</div><div class="m" style="margin-top:6px">Versión ${APP_VERSION}</div><button class="btn ghost full" data-act="forceUpdate" style="margin-top:10px">Buscar actualización</button><div class="m" style="margin-top:6px">No borra tus datos: solo vuelve a descargar la app.</div></div>`;
   return h;
 }
 
@@ -1928,6 +1929,7 @@ function act(a,ds,t,e){
     case 'comparePhotos':comparePhotosModal(ds.id);break;
     case 'genReport':sharePDF(ds.id);break;
     case 'openReport':openReport(ds.id);break;
+    case 'forceUpdate':forceUpdate();break;
     case 'cmpPick':{
       const b=ds.which==='before'?ds.id:ds.before;
       const a=ds.which==='after'?ds.id:ds.after;
@@ -2130,6 +2132,14 @@ function saveMeasure(){
   if(jobs.length)Promise.all(jobs).then(()=>loadPhotosForClient(cid,true));
 }
 
+async function forceUpdate(){
+  toast('Buscando actualización…');
+  try{
+    if('serviceWorker' in navigator){const regs=await navigator.serviceWorker.getRegistrations();await Promise.all(regs.map(r=>r.unregister()))}
+    if(window.caches){const ks=await caches.keys();await Promise.all(ks.map(k=>caches.delete(k)))}
+  }catch(e){}
+  location.reload();
+}
 /* ---------- respaldo ---------- */
 function exportJSON(){
   return JSON.stringify({app:'registro-clientes',v:2,exportedAt:new Date().toISOString(),clients:db.clients,sessions:db.sessions,measures:db.measures,exercises:db.exercises,cycles:db.cycles,wellness:db.wellness,settings:db.settings});
