@@ -157,6 +157,123 @@ details .body{margin-top:10px;padding-top:10px;border-top:1px solid var(--line)}
 .navbar button{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;padding:8px 2px 6px;color:var(--muted);font-size:11px;font-weight:600}
 .navbar button.on{color:var(--accent)}
 .navbar .ic{font-size:20px;line-height:1}
+@font-face{font-family:'Montserrat';font-weight:400;font-display:swap;src:url(brand/montserrat-400.woff2) format('woff2')}
+@font-face{font-family:'Montserrat';font-weight:600;font-display:swap;src:url(brand/montserrat-600.woff2) format('woff2')}
+@font-face{font-family:'Montserrat';font-weight:700;font-display:swap;src:url(brand/montserrat-700.woff2) format('woff2')}
+@font-face{font-family:'Montserrat';font-weight:800;font-display:swap;src:url(brand/montserrat-800.woff2) format('woff2')}
+.rp{position:fixed;inset:0;z-index:45;background:#000;color:#fff;font-family:'Montserrat',system-ui,sans-serif;display:flex;flex-direction:column}
+.rp *{box-sizing:border-box}
+.rp button{font-family:inherit;color:inherit;border:0;cursor:pointer}
+.rp-bar{flex:none;padding:calc(10px + env(safe-area-inset-top,0px)) 16px 10px;display:flex;flex-direction:column;gap:10px;border-bottom:1px solid #232327;background:#000}
+.rp-top{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.rp-top>img{height:36px;width:auto;display:block}
+.rp-acts{display:flex;align-items:center;gap:8px}
+.rp-pdf{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 16px;border-radius:22px;border:1px solid #F0010A!important;background:transparent;font-size:13px;font-weight:600;letter-spacing:.03em}
+.rp-pdf.big{margin-top:22px;min-height:50px;padding:0 24px;font-size:14px}
+.rp-x{width:44px;height:44px;border-radius:22px;background:#18181B;font-size:26px;line-height:1}
+.rp-tabs{display:flex;gap:6px}
+.rp-tabs button{flex:1;min-height:40px;border-radius:20px;background:#0F0F11;border:1px solid #232327!important;font-size:13px;font-weight:600;color:#A1A1AA}
+.rp-tabs button.on{background:#F0010A;border-color:#F0010A!important;color:#fff}
+.rp-body{flex:1;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;padding:24px 20px calc(36px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;gap:24px}
+.rp-body.pres{padding:0;overflow:hidden;gap:0}
+.rp-head{display:flex;flex-direction:column;gap:12px}
+.rp h1{font-family:'Montserrat',system-ui,sans-serif;color:#fff}
+.rp-body>*{flex-shrink:0}
+.rp-slide>*:not(.push){flex-shrink:0}
+.rp-eyebrow{font-size:12px;font-weight:600;letter-spacing:.3em;color:#F0010A}
+.rp-eyebrow.w{color:#fff;letter-spacing:.22em;font-weight:700}
+.rp-h1{margin:0;font-size:38px;line-height:1.05;font-weight:800;letter-spacing:-.01em;word-break:break-word}
+.rp-sub{font-size:14px;color:#A1A1AA;line-height:1.6}
+.rp-sub i{display:inline-block;width:4px;height:4px;border-radius:2px;background:#F0010A;margin:0 10px;vertical-align:middle}
+.rp-sub .g{color:#A1A1AA}
+.rp-rule{height:1px;margin-top:4px;background:linear-gradient(90deg,#F0010A 0,#F0010A 72px,#232327 72px)}
+.rp-sec{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;margin-bottom:-10px}
+.rp-sec span{width:3px;height:14px;background:#F0010A;flex:none}
+.rp-tiles{display:grid;gap:10px}
+.rp-tiles.n1{grid-template-columns:1fr}.rp-tiles.n2{grid-template-columns:repeat(2,minmax(0,1fr))}.rp-tiles.n3,.rp-tiles.n4{grid-template-columns:repeat(3,minmax(0,1fr))}
+.rp-tile{background:#0F0F11;border:1px solid #232327;border-radius:16px;padding:14px 12px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.rp-tile .l{font-size:11px;font-weight:600;letter-spacing:.14em;color:#A1A1AA}
+.rp-tile .v{font-size:28px;font-weight:800;line-height:1}
+.rp-tile .v small{font-size:13px;font-weight:600;color:#A1A1AA}
+.rp-tile .d{font-size:13px;font-weight:700}
+.rp-tile .d.r{color:#FF3B43}.rp-tile .d.w{color:#fff}.rp-tile .d.n{color:#A1A1AA;font-weight:500;font-size:12px}
+.rp-card{background:#0F0F11;border:1px solid #232327;border-radius:20px;padding:18px 16px 14px;display:flex;flex-direction:column;gap:10px}
+.rp-cardh{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.rp-cardh b{font-size:12px;font-weight:700;letter-spacing:.2em}
+.rp-cardh b.red{color:#F0010A}
+.rp-cardh span{font-size:12px;color:#A1A1AA}
+.rp-cardh em{font-style:normal;font-size:11px;font-weight:700;letter-spacing:.12em;border:1px solid #F0010A;color:#F0010A;border-radius:12px;padding:5px 10px}
+.rp-xl{display:flex;justify-content:space-between;font-size:11px;color:#A1A1AA}
+.rp-p{margin:0;font-size:15px;line-height:1.55;color:#E4E4E7}
+.rp-note{font-size:12px;color:#A1A1AA;line-height:1.5}
+.rp-starn{font-size:20px;font-weight:700}
+.rp-big{font-size:38px;font-weight:800;line-height:1}
+.rp-big small{font-size:15px;font-weight:600;color:#A1A1AA}
+.rp-big i,.rp-big2 i,.rp-v i{font-style:normal;color:#F0010A}
+.rp-list{background:#0F0F11;border:1px solid #232327;border-radius:20px;padding:4px 16px}
+.rp-li{padding:14px 0;border-bottom:1px solid #232327;display:flex;flex-direction:column;gap:8px}
+.rp-li:last-child{border-bottom:0}
+.rp-lr{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.rp-lr .n{font-size:15px;font-weight:600;min-width:0}
+.rp-lr .v{font-size:14px;color:#A1A1AA;white-space:nowrap}
+.rp-lr .v b{color:#fff;font-weight:700}
+.rp-lr .v b.r{color:#FF3B43;margin-left:6px}
+.rp-lr .v b.w{color:#fff;margin-left:6px}
+.rp-lr .v i{font-style:normal;color:#F0010A}
+.rp-pb{height:5px;border-radius:3px;background:#232327}
+.rp-pb div{height:5px;border-radius:3px}
+.rp-pb .r{background:#F0010A}.rp-pb .w{background:#fff}
+.rp-recs{display:flex;flex-direction:column;gap:10px}
+.rp-rec{display:flex;align-items:center;gap:14px;background:#0F0F11;border:1px solid #232327;border-radius:16px;padding:14px 16px}
+.rp-rec .ic{width:40px;height:40px;border-radius:20px;background:#F0010A;display:flex;align-items:center;justify-content:center;flex:none}
+.rp-rec div{display:flex;flex-direction:column;gap:2px;flex:1;min-width:0}
+.rp-rec b{font-size:15px;font-weight:700}
+.rp-rec span{font-size:12px;color:#A1A1AA}
+.rp-rec.s{padding:12px 14px;gap:12px;border-radius:14px}
+.rp-rec.s .dt{width:10px;height:10px;border-radius:5px;background:#F0010A;flex:none}
+.rp-rec.s b{font-size:14px;font-weight:600}
+.rp-rec.s em{font-style:normal;font-weight:700;font-size:14px}
+.rp-cmp{position:relative;aspect-ratio:3/4;border-radius:20px;overflow:hidden;background:#111114;border:1px solid #232327;max-height:70vh;width:100%}
+.rp-cmp img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+.rp-cmp .bf{position:absolute;inset:0}
+.rp-cmp .ln{position:absolute;top:0;bottom:0;width:3px;margin-left:-1.5px;background:#F0010A;pointer-events:none}
+.rp-cmp .kn{position:absolute;top:50%;width:44px;height:44px;margin:-22px 0 0 -22px;border-radius:22px;background:#F0010A;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 4px rgba(0,0,0,.6);pointer-events:none}
+.rp-cmp .rg{position:absolute;inset:0;width:100%;height:100%;opacity:0;margin:0;touch-action:pan-y;cursor:ew-resize}
+.rp-cmp .tg{position:absolute;bottom:14px;font-size:11px;font-weight:700;letter-spacing:.14em;padding:6px 10px;border-radius:10px;pointer-events:none}
+.rp-cmp .tg.l{left:14px;background:rgba(0,0,0,.72)}
+.rp-cmp .tg.r{right:14px;background:#F0010A}
+.rp-foot{display:flex;flex-direction:column;align-items:center;gap:12px;padding-top:6px;font-size:12px;color:#A1A1AA;text-align:center}
+.rp-foot img{width:230px;max-width:70%;height:auto}
+.rp-snap{display:flex;height:100%;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain}
+.rp-slide{flex:0 0 100%;scroll-snap-align:start;scroll-snap-stop:always;overflow-y:auto;padding:24px 24px calc(64px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;gap:18px;position:relative;min-width:0}
+.rp-slide .push{flex:1}
+.rp-slide.cover .tri{position:absolute;top:0;right:0;width:62%;height:34%;background:#F0010A;clip-path:polygon(100% 0,100% 100%,0 0);pointer-events:none}
+.rp-slide .mk{position:relative;height:44px;width:auto;align-self:flex-start}
+.rp-huge{font-size:clamp(76px,28vw,120px);font-weight:800;line-height:.95;letter-spacing:-.03em}
+.rp-huge small{font-size:clamp(26px,9vw,38px);font-weight:700;color:#A1A1AA;letter-spacing:0}
+.rp-cap{font-size:22px;font-weight:700;line-height:1.25}
+.rp-cap.sm{font-size:16px;font-weight:500;color:#A1A1AA}
+.rp-hint{font-size:14px;color:#A1A1AA;line-height:1.5}
+.rp-big2{font-size:clamp(44px,15vw,60px);font-weight:800;line-height:1;letter-spacing:-.02em}
+.rp-big2 small{font-size:22px;color:#A1A1AA;font-weight:600}
+.rp-pp{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.rp-pp.one{grid-template-columns:1fr}
+.rp-pp>div{position:relative;aspect-ratio:3/4;border-radius:16px;overflow:hidden;background:#111114;border:1px solid #232327}
+.rp-pp>div.now{border-color:#F0010A}
+.rp-pp img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.rp-pp span{position:absolute;left:10px;bottom:10px;font-size:11px;font-weight:700;letter-spacing:.14em;background:rgba(0,0,0,.72);padding:5px 9px;border-radius:9px}
+.rp-pp .now span{background:#F0010A}
+.rp-prs{display:flex;flex-direction:column;gap:12px}
+.rp-pr{display:flex;justify-content:space-between;align-items:baseline;gap:10px;border-bottom:1px solid #232327;padding-bottom:10px;font-size:15px}
+.rp-pr span:first-child{font-weight:600}
+.rp-pr span:last-child{color:#A1A1AA}
+.rp-pr b{color:#fff}
+.rp-pr i{font-style:normal;color:#F0010A}
+.rp-slide.end{align-items:center;text-align:center}
+.rp-slide .fl{width:240px;max-width:75%;height:auto}
+.rp-dots{position:absolute;left:0;right:0;bottom:calc(18px + env(safe-area-inset-bottom,0px));display:flex;justify-content:center;gap:6px;pointer-events:none}
+.rp-dots span{width:22px;height:4px;border-radius:2px;background:#3F3F46}
+.rp-dots span.on{background:#F0010A}
 </style>
 </head>
 <body>
@@ -812,169 +929,603 @@ function comparePhotosModal(cid,beforeId,afterId){
   openModal(h);
 }
 
-/* ---------- informes (PDF) ---------- */
+const fmtDateNice=iso=>parseIso(iso).toLocaleDateString('es-PE',{day:'numeric',month:'long',year:'numeric'});
+/* ---------- informes premium (pantalla + PDF) ---------- */
 function informesTabHTML(c){
   const ss=clientSessions(c.id),ms=clientMeasures(c.id);
   let h=`<div class="card"><b class="t">Informe de progreso</b>
-    <div class="m" style="margin:6px 0 10px">Genera un PDF con resumen, medidas, récords, ciclo de carga, observaciones y fotos de progreso — para compartir por WhatsApp o guardar.</div>
+    <div class="m" style="margin:6px 0 10px">Preséntaselo al cliente en pantalla (evaluación, progresión de fuerza y modo presentación) o envíale el PDF con tu marca.</div>
     <div class="m" style="margin-bottom:10px">Incluye: ${ss.length} entrenamiento${ss.length===1?'':'s'}, ${ms.length} ${ms.length===1?'evaluación':'evaluaciones'}${activeCycle(c.id)?', ciclo activo':''}.</div>
-    <button class="btn full" data-act="genReport" data-id="${c.id}">Generar y compartir PDF</button>
+    <button class="btn full" data-act="openReport" data-id="${c.id}">Ver informe en pantalla</button>
+    <button class="btn ghost full" data-act="genReport" data-id="${c.id}" style="margin-top:8px">Generar y compartir PDF</button>
   </div>`;
   return h;
 }
-async function generateReportPDF(cid){
-  if(!(window.jspdf&&window.jspdf.jsPDF))return null;
+
+/* datos comunes del informe (los usan la pantalla y el PDF) */
+const REPORT_MEASURES=['waist','abdomen','hip','chest','arm','thigh','calf','neck'];
+async function reportData(cid){
   const c=getClient(cid);if(!c)return null;
-  const ss=clientSessions(cid);
-  const ms=clientMeasures(cid);
-  const msDesc=[...ms].reverse();
-  const cy=activeCycle(cid);
-  const pastCycles=clientCycles(cid).filter(x=>!x.active);
+  const ss=clientSessions(cid);            // más reciente primero
+  const ms=clientMeasures(cid);            // más antigua primero
   let photos=[];
   try{photos=await getPhotosByClient(cid)}catch(e){}
-  const byMeasure={};
-  photos.forEach(p=>{(byMeasure[p.measureId]=byMeasure[p.measureId]||[]).push(p)});
+  const trainer=db.settings.trainer||{};
+  const stat=k=>{
+    const v=ms.filter(m=>m[k]!=null);
+    if(!v.length)return null;
+    let a=v[0][k];const b=v[v.length-1][k];
+    if(k==='weight'&&v.length===1&&c.weightInitial!=null)a=c.weightInitial;
+    const n=k==='weight'&&v.length===1&&c.weightInitial!=null?2:v.length;
+    return {first:a,last:b,delta:n>1?Math.round((b-a)*100)/100:null};
+  };
+  const stats={weight:stat('weight'),fat:stat('fat'),muscleKg:stat('muscleKg'),muscle:stat('muscle'),imc:stat('imc')};
+  const weightPts=ms.filter(m=>m.weight!=null).map(m=>({d:m.date,y:m.weight}));
+  // medidas corporales
+  const meas=[];
+  REPORT_MEASURES.forEach(k=>{
+    const s=stat(k);if(!s)return;
+    meas.push({k,label:MFIELDS[k][0],unit:MFIELDS[k][1],first:s.first,last:s.last,delta:s.delta});
+  });
+  const maxAbs=Math.max(1,...meas.map(x=>Math.abs(x.delta||0)));
+  meas.forEach(x=>{x.frac=x.delta==null?0:Math.max(.08,Math.abs(x.delta)/maxAbs)});
+  // fuerza por ejercicio
+  const asc=[...ss].reverse();
+  const byEx={};
+  asc.forEach(s=>s.exercises.forEach(e=>{
+    const key=e.name.toLowerCase();
+    const ws=e.sets.filter(x=>x.w>0&&x.r>0).map(x=>x.w);
+    if(!ws.length)return;
+    const o=byEx[key]=byEx[key]||{name:e.name,pts:[]};
+    o.pts.push({d:s.date,y:Math.max(...ws)});
+  }));
+  const exList=Object.values(byEx).map(o=>{
+    const f=o.pts[0].y,l=o.pts[o.pts.length-1].y;
+    const rec=computeRecords(cid,o.name);
+    return {name:o.name,pts:o.pts,first:f,last:l,pct:o.pts.length>1?(l-f)/f:null,rec};
+  });
+  const improved=exList.filter(x=>x.pct!=null&&x.pct>0).sort((a,b)=>b.pct-a.pct);
+  let star=improved[0]||null;
+  if(!star&&exList.length)star=[...exList].sort((a,b)=>b.pts.length-a.pts.length)[0];
+  const records=exList.filter(x=>x.rec).map(x=>({name:x.name,w:x.rec.bestWeight.w,r:x.rec.bestWeight.r,date:x.rec.bestWeight.date}))
+    .sort((a,b)=>b.date.localeCompare(a.date)).slice(0,4);
+  // fotos
+  const byM={};photos.forEach(p=>{(byM[p.measureId]=byM[p.measureId]||[]).push(p)});
+  const withPh=ms.filter(m=>(byM[m.id]||[]).length);
+  let photoPairs=[];
+  if(withPh.length){
+    const bm=withPh[0],am=withPh[withPh.length-1];
+    PHOTO_ANGLES.forEach(([angle,label])=>{
+      const pb=(byM[bm.id]||[]).find(p=>p.angle===angle);
+      const pa=(byM[am.id]||[]).find(p=>p.angle===angle);
+      if(!pb&&!pa)return;
+      photoPairs.push({angle,label,before:withPh.length>1&&pb?{data:pb.data,date:bm.date}:null,after:pa?{data:pa.data,date:am.date}:(pb&&withPh.length===1?{data:pb.data,date:bm.date}:null)});
+    });
+  }
+  // fechas y periodo
+  const dates=[...ms.map(m=>m.date),...ss.map(s=>s.date)].sort();
+  const startIso=(c.startDate&&dates.length&&c.startDate<dates[0])?c.startDate:(dates[0]||today());
+  const endIso=dates.length?dates[dates.length-1]:today();
+  const weeks=Math.max(1,Math.round((parseIso(endIso)-parseIso(startIso))/864e5/7));
+  let note='';
+  for(let i=ms.length-1;i>=0;i--){if(ms[i].note&&ms[i].note.trim()){note=ms[i].note.trim();break}}
+  const cy=activeCycle(cid);
+  return {c,trainer,ss,ms,stats,weightPts,meas,exList,improved,star,records,photoPairs,startIso,endIso,weeks,note,cy,
+    trainerName:trainer.name||'Ricardo Aguilar',contact:[trainer.whatsapp,trainer.email].filter(Boolean).join('  ·  '),
+    evalNo:ms.length,lastEval:ms.length?ms[ms.length-1].date:null};
+}
 
+/* --- pantalla --- */
+let rpState=null;
+const rpSigned=n=>(n<0?'−':n>0?'+':'')+fmtNum(Math.abs(n));
+function rpLine(pts,label){
+  if(!pts||!pts.length)return '';
+  const W=320,H=130,px=18,top=24,bot=14;
+  const ys=pts.map(p=>p.y);let mn=Math.min(...ys),mx=Math.max(...ys);
+  if(mn===mx){mn-=1;mx+=1}
+  const pad=(mx-mn)*.18;mn-=pad;mx+=pad;
+  const ts=pts.map(p=>parseIso(p.d).getTime()),t0=ts[0],t1=ts[ts.length-1];
+  const X=i=>pts.length===1?W/2:(t1===t0?px+(W-2*px)*i/(pts.length-1):px+(W-2*px)*(ts[i]-t0)/(t1-t0));
+  const Y=v=>top+(H-top-bot)*(1-(v-mn)/(mx-mn));
+  const xy=pts.map((p,i)=>[X(i),Y(p.y)]);
+  const path=xy.map((q,i)=>(i?'L':'M')+q[0].toFixed(1)+' '+q[1].toFixed(1)).join(' ');
+  const L=xy.length-1;
+  const area=xy.length>1?`<path d="${path} L${xy[L][0].toFixed(1)} ${H-bot} L${xy[0][0].toFixed(1)} ${H-bot}Z" fill="#F0010A" fill-opacity=".12"/>`:'';
+  let s=`<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="${esc(label)}" style="display:block">`;
+  [top,(top+H-bot)/2,H-bot].forEach(y=>{s+=`<line x1="8" y1="${y}" x2="${W-8}" y2="${y}" stroke="#232327"/>`});
+  s+=area;
+  if(xy.length>1)s+=`<path d="${path}" fill="none" stroke="#F0010A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>`;
+  xy.forEach((q,i)=>{s+=i===L?`<circle cx="${q[0].toFixed(1)}" cy="${q[1].toFixed(1)}" r="6.5" fill="#F0010A"/>`:`<circle cx="${q[0].toFixed(1)}" cy="${q[1].toFixed(1)}" r="4.5" fill="#000" stroke="#F0010A" stroke-width="2.5"/>`});
+  s+=`<text x="${Math.min(Math.max(xy[0][0],16),W-16).toFixed(1)}" y="${(xy[0][1]-10).toFixed(1)}" fill="#A1A1AA" font-size="11" text-anchor="middle" font-family="Montserrat,sans-serif">${fmtNum(pts[0].y)}</text>`;
+  if(L>0)s+=`<text x="${Math.min(xy[L][0],W-16).toFixed(1)}" y="${(xy[L][1]-12).toFixed(1)}" fill="#fff" font-size="13" font-weight="700" text-anchor="middle" font-family="Montserrat,sans-serif">${fmtNum(pts[L].y)}</text>`;
+  return s+'</svg>';
+}
+function rpSec(t){return `<div class="rp-sec"><span></span>${esc(t)}</div>`}
+function rpHead(d,eyebrow,sub){
+  const parts=d.c.name.trim().split(/\s+/);
+  const first=parts.shift(),rest=parts.join(' ');
+  return `<div class="rp-head"><div class="rp-eyebrow">${esc(eyebrow)}</div><h1 class="rp-h1">${esc(first)}${rest?'<br>'+esc(rest):''}</h1><div class="rp-sub">${sub}</div><div class="rp-rule"></div></div>`;
+}
+function rpTile(lbl,val,unit,delta,sub){
+  let dl='';
+  if(sub)dl=`<span class="d n">${sub}</span>`;
+  else if(delta==null)dl='<span class="d n">—</span>';
+  else if(delta===0)dl='<span class="d n">sin cambio</span>';
+  else dl=`<span class="d ${delta<0?'r':'w'}">${delta<0?'▼':'▲'} ${fmtNum(Math.abs(delta))}${unit&&unit!=='%'?' '+unit:unit==='%'?' pts':''}</span>`;
+  return `<div class="rp-tile"><span class="l">${lbl}</span><span class="v">${val}<small>${unit?' '+unit:''}</small></span>${dl}</div>`;
+}
+function rpFoot(d){
+  return `<div class="rp-foot"><img src="brand/logo-full.png" alt="${esc(d.trainerName)}, entrenador personal">${d.contact?`<div>${esc(d.contact)}</div>`:''}</div>`;
+}
+function rpCompareHTML(d){
+  if(!d.photoPairs.length)return '';
+  const pairs=d.photoPairs;
+  const p0=pairs.find(p=>p.angle==='front')||pairs[0];
+  let h=rpSec('Antes y después');
+  if(p0.before&&p0.after){
+    h+=`<div class="rp-cmp" id="rpCmp"><img class="a" src="${p0.after.data}" alt="Ahora"><div class="bf" id="rpBf" style="clip-path:inset(0 50% 0 0)"><img src="${p0.before.data}" alt="Antes"></div><div class="ln" id="rpLn" style="left:50%"></div><div class="kn" id="rpKn" style="left:50%"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l-6 6 6 6"/><path d="M15 6l6 6-6 6"/></svg></div><input type="range" min="0" max="100" value="50" class="rg" data-rprange aria-label="Deslizar para comparar antes y después"><span class="tg l">ANTES · ${esc(fmtDate(p0.before.date))}</span><span class="tg r">AHORA · ${esc(fmtDate(p0.after.date))}</span></div>`;
+    const others=pairs.filter(p=>p!==p0&&p.before&&p.after);
+    if(others.length)h+=`<div class="rp-note" style="margin-top:2px">También hay fotos de ${others.map(o=>esc(o.label.toLowerCase())).join(' y ')} en el PDF.</div>`;
+  } else {
+    const one=p0.after||p0.before;
+    h+=`<div class="rp-cmp one"><img class="a" src="${one.data}" alt="Foto de progreso"><span class="tg r">AHORA · ${esc(fmtDate(one.date))}</span></div><div class="rp-note">Con una segunda evaluación con fotos verás aquí el antes y después.</div>`;
+  }
+  return h;
+}
+function rpEvalHTML(d){
+  const name=d.c.name;
+  if(!d.ms.length){
+    return rpHead(d,'INFORME DE EVALUACIÓN','Sin evaluaciones todavía')+`<div class="rp-card"><p class="rp-p">Registra la primera evaluación en la pestaña Evaluaciones y aquí aparecerá el informe completo.</p></div>`+rpFoot(d);
+  }
+  const sub=`Evaluación ${d.evalNo}<i></i>${esc(fmtDateNice(d.lastEval))}`+(d.c.goal?`<br><span class="g">Objetivo: ${esc(d.c.goal)}</span>`:'');
+  let h=rpHead(d,'INFORME DE EVALUACIÓN',sub);
+  const t=[];
+  if(d.stats.weight)t.push(rpTile('PESO',fmtNum(d.stats.weight.last),'kg',d.stats.weight.delta));
+  if(d.stats.fat)t.push(rpTile('GRASA',fmtNum(d.stats.fat.last),'%',d.stats.fat.delta));
+  if(d.stats.muscleKg)t.push(rpTile('MÚSCULO',fmtNum(d.stats.muscleKg.last),'kg',d.stats.muscleKg.delta));
+  else if(d.stats.muscle)t.push(rpTile('MÚSCULO',fmtNum(d.stats.muscle.last),'%',d.stats.muscle.delta));
+  if(t.length<3&&d.stats.imc)t.push(rpTile('IMC',fmtNum(d.stats.imc.last),'',d.stats.imc.delta));
+  if(t.length){h+=rpSec('Tu progreso en números')+`<div class="rp-tiles n${t.length}">${t.join('')}</div>`}
+  if(d.weightPts.length>1){
+    h+=`<div class="rp-card"><div class="rp-cardh"><b>PESO CORPORAL</b><span>${d.weightPts.length} evaluaciones</span></div>${rpLine(d.weightPts,'Evolución del peso corporal')}<div class="rp-xl"><span>${esc(fmtDate(d.weightPts[0].d))}</span><span>${esc(fmtDate(d.weightPts[d.weightPts.length-1].d))}</span></div></div>`;
+  }
+  h+=rpCompareHTML(d);
+  if(d.meas.length){
+    h+=rpSec('Medidas corporales')+`<div class="rp-list">`+d.meas.map(m=>{
+      const dl=m.delta==null?'':`<b class="${m.delta<0?'r':'w'}">${rpSigned(m.delta)}</b>`;
+      const fill=m.delta==null?0:Math.round(m.frac*100);
+      return `<div class="rp-li"><div class="rp-lr"><span class="n">${esc(m.label)}</span><span class="v">${m.delta==null?'<b>'+fmtNum(m.last)+' '+m.unit+'</b>':fmtNum(m.first)+' <i>→</i> <b>'+fmtNum(m.last)+' '+m.unit+'</b>'}${dl}</span></div>${m.delta==null?'':`<div class="rp-pb"><div class="${m.delta<0?'r':'w'}" style="width:${fill}%"></div></div>`}</div>`;
+    }).join('')+`</div>`;
+  }
+  if(d.note)h+=`<div class="rp-card"><div class="rp-eyebrow" style="margin-bottom:8px">NOTA DE TU ENTRENADOR</div><p class="rp-p">${esc(d.note)}</p></div>`;
+  return h+rpFoot(d);
+}
+function rpProgHTML(d){
+  const sub=`${d.ss.length} sesion${d.ss.length===1?'':'es'}<i></i>${d.weeks} semana${d.weeks===1?'':'s'}`+(d.cy?`<br><span class="g">Ciclo actual: semana ${d.cy.currentWeek} de ${d.cy.weeks}</span>`:'');
+  let h=rpHead(d,'INFORME DE PROGRESIÓN',sub);
+  if(!d.exList.length){
+    return h+`<div class="rp-card"><p class="rp-p">Cuando registres entrenamientos con peso, aquí verás tu progresión de fuerza ejercicio por ejercicio.</p></div>`+rpFoot(d);
+  }
+  h+=`<div class="rp-tiles n3">${rpTile('SESIONES',d.ss.length,'',null,d.weeks+(d.weeks===1?' semana':' semanas'))}${rpTile('MEJORAS',d.improved.length,'',null,'ejercicios con más carga')}${rpTile('EJERCICIOS',d.exList.length,'',null,'registrados')}</div>`;
+  const s=d.star;
+  if(s){
+    h+=`<div class="rp-card"><div class="rp-cardh"><b class="red">EJERCICIO ESTRELLA</b>${s.pct!=null&&s.pct>0?'<em>MEJORA</em>':''}</div><div class="rp-starn">${esc(s.name)}</div><div class="rp-big">${s.pts.length>1?fmtNum(s.first)+' <i>→</i> ':''}${fmtNum(s.last)}<small> kg</small></div>${rpLine(s.pts,'Evolución de '+s.name)}<div class="rp-xl"><span>${esc(fmtDate(s.pts[0].d))}</span><span>${esc(fmtDate(s.pts[s.pts.length-1].d))}</span></div></div>`;
+  }
+  if(d.improved.length){
+    const mx=Math.max(...d.improved.map(x=>x.pct));
+    h+=rpSec('Mejoras por ejercicio')+`<div class="rp-list">`+d.improved.slice(0,6).map(x=>`<div class="rp-li"><div class="rp-lr"><span class="n">${esc(x.name)}</span><span class="v">${fmtNum(x.first)} <i>→</i> <b>${fmtNum(x.last)} kg</b><b class="r">+${Math.round(x.pct*100)} %</b></span></div><div class="rp-pb"><div class="r" style="width:${Math.max(8,Math.round(x.pct/mx*100))}%"></div></div></div>`).join('')+`</div>`;
+  }
+  if(d.records.length){
+    h+=rpSec('Récords recientes')+`<div class="rp-recs">`+d.records.map(r=>`<div class="rp-rec"><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M12 14v4"/><path d="M8 20h8"/></svg></span><div><b>${esc(r.name)} · ${fmtNum(r.w)} kg × ${r.r}</b><span>${esc(fmtDateNice(r.date))}</span></div></div>`).join('')+`</div>`;
+  }
+  return h+rpFoot(d);
+}
+function rpPresHTML(d){
+  const first=d.c.name.trim().split(/\s+/)[0];
+  const slides=[];
+  const w=d.stats.weight;
+  let big,unit,caption;
+  if(w&&w.delta!=null&&w.delta!==0){big=rpSigned(w.delta);unit='kg';caption=`${esc(first)}, esto es lo que lograste.`}
+  else if(d.ss.length){big=String(d.ss.length);unit=d.ss.length===1?'sesión':'sesiones';caption=`${esc(first)}, este es tu esfuerzo.`}
+  else{big=String(d.weeks);unit=d.weeks===1?'semana':'semanas';caption=`${esc(first)}, este es tu proceso.`}
+  slides.push(`<div class="rp-slide cover"><div class="tri"></div><img class="mk" src="brand/logo-mark.png" alt="Ricardo Aguilar"><div class="push"></div><div class="rp-eyebrow">${d.weeks} SEMANA${d.weeks===1?'':'S'}</div><div class="rp-huge">${big}<small> ${unit}</small></div><div class="rp-cap">${caption}</div><div class="rp-hint">Desliza para ver tu transformación</div></div>`);
+  if(d.ms.length){
+    const p0=d.photoPairs.find(p=>p.angle==='front')||d.photoPairs[0];
+    let ph='';
+    if(p0&&p0.before&&p0.after)ph=`<div class="rp-pp"><div><img src="${p0.before.data}" alt="Antes"><span>ANTES</span></div><div class="now"><img src="${p0.after.data}" alt="Ahora"><span>AHORA</span></div></div>`;
+    else if(p0&&(p0.after||p0.before))ph=`<div class="rp-pp one"><div class="now"><img src="${(p0.after||p0.before).data}" alt="Ahora"><span>AHORA</span></div></div>`;
+    const rows=[];
+    const add=(lbl,s,u)=>{if(s)rows.push(`<div class="rp-pr"><span>${lbl}</span><span>${s.delta==null?'<b>'+fmtNum(s.last)+u+'</b>':fmtNum(s.first)+u+' <i>→</i> <b>'+fmtNum(s.last)+u+'</b>'}</span></div>`)};
+    add('Peso',d.stats.weight,' kg');add('Grasa corporal',d.stats.fat,' %');add('Masa muscular',d.stats.muscleKg,' kg');
+    const wm=d.meas.find(m=>m.k==='waist');if(wm)add('Cintura',{first:wm.first,last:wm.last,delta:wm.delta},' cm');
+    slides.push(`<div class="rp-slide"><div class="rp-eyebrow">TU CAMBIO</div>${ph}<div class="rp-prs">${rows.slice(0,4).join('')}</div></div>`);
+  }
+  if(d.star){
+    const s=d.star;
+    slides.push(`<div class="rp-slide"><div class="rp-eyebrow">TU FUERZA</div><div class="rp-cap sm">${s.pts.length>1?`Tu ${esc(s.name.toLowerCase())} pasó de`:`Tu ${esc(s.name.toLowerCase())}`}</div><div class="rp-big2">${s.pts.length>1?fmtNum(s.first)+' <i>→</i> ':''}${fmtNum(s.last)}<small> kg</small></div>${rpLine(s.pts,'Evolución de '+s.name)}${d.records.length?`<div class="rp-eyebrow w" style="margin-top:10px">RÉCORDS</div><div class="rp-recs">`+d.records.slice(0,3).map(r=>`<div class="rp-rec s"><span class="dt"></span><div><b>${esc(r.name)}</b></div><em>${fmtNum(r.w)} kg × ${r.r}</em></div>`).join('')+`</div>`:''}</div>`);
+  }
+  slides.push(`<div class="rp-slide end"><div class="push"></div><img class="fl" src="brand/logo-full.png" alt="${esc(d.trainerName)}, entrenador personal"><div class="rp-cap">Seguimos construyendo.</div>${d.contact?`<div class="rp-hint">${esc(d.contact)}</div>`:''}<button class="rp-pdf big" data-rp="pdf"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F0010A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="M7 8l5-5 5 5"/><path d="M5 14v5a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-5"/></svg>Enviar mi informe en PDF</button><div class="push"></div></div>`);
+  rpState.slides=slides.length;
+  return `<div class="rp-snap" id="rpSnap">${slides.join('')}</div>`;
+}
+function rpRender(){
+  const el=document.getElementById('rp');if(!el||!rpState)return;
+  const {d,tab}=rpState;
+  const tabs=[['eval','Evaluación'],['prog','Progresión'],['pres','Presentación']];
+  let body;
+  if(tab==='pres')body=rpPresHTML(d);
+  else body=tab==='prog'?rpProgHTML(d):rpEvalHTML(d);
+  const dots=tab==='pres'?`<div class="rp-dots" id="rpDots">${Array.from({length:rpState.slides},(_,i)=>`<span class="${i===0?'on':''}"></span>`).join('')}</div>`:'';
+  el.innerHTML=`<div class="rp-bar"><div class="rp-top"><img src="brand/logo-mark.png" alt="Ricardo Aguilar"><div class="rp-acts"><button class="rp-pdf" data-rp="pdf"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F0010A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="M7 8l5-5 5 5"/><path d="M5 14v5a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-5"/></svg>Enviar PDF</button><button class="rp-x" data-rp="close" aria-label="Cerrar informe">×</button></div></div><div class="rp-tabs">${tabs.map(([k,l])=>`<button class="${k===tab?'on':''}" data-rp="tab" data-t="${k}">${l}</button>`).join('')}</div></div><div class="rp-body${tab==='pres'?' pres':''}">${body}</div>${dots}`;
+  const sn=document.getElementById('rpSnap');
+  if(sn)sn.addEventListener('scroll',()=>{
+    const i=Math.round(sn.scrollLeft/Math.max(1,sn.clientWidth));
+    document.querySelectorAll('#rpDots span').forEach((s,j)=>s.classList.toggle('on',j===i));
+  },{passive:true});
+}
+async function openReport(cid,tab){
+  const d=await reportData(cid);
+  if(!d){toast('No se pudo abrir el informe');return}
+  rpState={cid,d,tab:tab||'eval',slides:0};
+  let el=document.getElementById('rp');
+  if(!el){
+    el=document.createElement('div');el.id='rp';el.className='rp';el.setAttribute('role','dialog');el.setAttribute('aria-label','Informe del cliente');
+    document.body.appendChild(el);
+    el.addEventListener('click',e=>{
+      const b=e.target.closest('[data-rp]');if(!b)return;
+      const a=b.dataset.rp;
+      if(a==='close'){closeReport()}
+      else if(a==='tab'){rpState.tab=b.dataset.t;rpRender();const bd=el.querySelector('.rp-body');if(bd)bd.scrollTop=0}
+      else if(a==='pdf'){sharePDF(rpState.cid)}
+    });
+    el.addEventListener('input',e=>{
+      const r=e.target.closest('[data-rprange]');if(!r)return;
+      const v=r.value;
+      const bf=document.getElementById('rpBf'),ln=document.getElementById('rpLn'),kn=document.getElementById('rpKn');
+      if(bf)bf.style.clipPath='inset(0 '+(100-v)+'% 0 0)';
+      if(ln)ln.style.left=v+'%';
+      if(kn)kn.style.left=v+'%';
+    });
+  }
+  rpRender();
+}
+function closeReport(){const el=document.getElementById('rp');if(el)el.remove();rpState=null}
+
+/* --- PDF --- */
+const PDF_FONTS=[['Montserrat-Regular.ttf','Montserrat','normal'],['Montserrat-Bold.ttf','Montserrat','bold'],['Montserrat-ExtraBold.ttf','MontserratXB','normal']];
+let _pdfFontB64=null;
+async function pdfFontData(){
+  if(_pdfFontB64)return _pdfFontB64;
+  const out=[];
+  for(const [file] of PDF_FONTS){
+    const r=await fetch('brand/'+file);if(!r.ok)throw new Error('font');
+    const u8=new Uint8Array(await r.arrayBuffer());
+    let bin='';for(let i=0;i<u8.length;i+=0x8000)bin+=String.fromCharCode.apply(null,u8.subarray(i,i+0x8000));
+    out.push(btoa(bin));
+  }
+  return (_pdfFontB64=out);
+}
+const _imgCache={};
+async function brandDataUrl(file){
+  if(_imgCache[file]!==undefined)return _imgCache[file];
+  try{
+    const r=await fetch('brand/'+file);if(!r.ok)throw new Error('img');
+    const b=await r.blob();
+    _imgCache[file]=await new Promise((res,rej)=>{const f=new FileReader();f.onload=()=>res(f.result);f.onerror=rej;f.readAsDataURL(b)});
+  }catch(e){_imgCache[file]=null}
+  return _imgCache[file];
+}
+function imgNatural(src){
+  return new Promise(res=>{
+    try{
+      const im=new Image();
+      const t=setTimeout(()=>res(null),2500);
+      im.onload=()=>{clearTimeout(t);res({w:im.naturalWidth||3,h:im.naturalHeight||4})};
+      im.onerror=()=>{clearTimeout(t);res(null)};
+      im.src=src;
+    }catch(e){res(null)}
+  });
+}
+async function generateReportPDF(cid){
+  if(!(window.jspdf&&window.jspdf.jsPDF))return null;
+  const d=await reportData(cid);if(!d)return null;
+  const {c,trainer}=d;
   const {jsPDF}=window.jspdf;
   const doc=new jsPDF({unit:'mm',format:'a4'});
-  const M=18,PW=210,PH=297,VALX=M+65;
-  let y=M;
-  const col=(r,g,b)=>doc.setTextColor(r,g,b);
-  function space(n){if(y+n>PH-22){doc.addPage();y=M}}
-  function h2(t){space(9);doc.setFont(undefined,'bold');doc.setFontSize(13);col(36,69,232);doc.text(t,M,y);y+=6;doc.setDrawColor(220);doc.line(M,y-2,PW-M,y-2);y+=4;}
-  function label(t){space(6);doc.setFont(undefined,'normal');doc.setFontSize(10);col(93,107,126);doc.text(t,M,y);y+=6;}
-  function kv(k,v){space(6);doc.setFont(undefined,'normal');doc.setFontSize(10);col(93,107,126);doc.text(String(k),M,y);col(13,27,42);doc.setFont(undefined,'bold');doc.text(String(v),VALX,y);y+=6;}
-  function para(t){
-    doc.setFont(undefined,'normal');doc.setFontSize(10);col(13,27,42);
-    const lines=doc.splitTextToSize(String(t),PW-2*M);
-    lines.forEach(line=>{space(5.5);doc.text(line,M,y);y+=5.5});
+  let fontsOK=false;
+  try{
+    const b64=await pdfFontData();
+    PDF_FONTS.forEach(([file,fam,st],i)=>{doc.addFileToVFS(file,b64[i]);doc.addFont(file,fam,st)});
+    fontsOK=true;
+  }catch(e){}
+  const logoFull=await brandDataUrl('logo-full.png');
+  const logoMark=await brandDataUrl('logo-mark.png');
+  const PW=210,PH=297,M=16,CW=PW-2*M;
+  const RED=[240,1,10],DRED=[196,0,8],BRED=[255,59,67],INK=[17,17,20],GRY=[113,113,122],LGR=[228,228,231],ZEB=[250,250,250];
+  const font=w=>{ // 'n' normal, 'b' negrita, 'x' extranegrita
+    if(fontsOK){if(w==='x')doc.setFont('MontserratXB','normal');else doc.setFont('Montserrat',w==='b'?'bold':'normal')}
+    else doc.setFont('helvetica',w==='n'?'normal':'bold');
+  };
+  const fill=a=>doc.setFillColor(a[0],a[1],a[2]);
+  const txt=a=>doc.setTextColor(a[0],a[1],a[2]);
+  const stroke=a=>doc.setDrawColor(a[0],a[1],a[2]);
+  const T=(s,x,y,o)=>doc.text(String(s),x,y,o);
+  let y=0;
+  const pageName=c.name;
+
+  /* portada */
+  fill([0,0,0]);doc.rect(0,0,PW,PH,'F');
+  fill(RED);doc.triangle(PW,0,PW,112,PW-86,0,'F');
+  if(logoFull){try{doc.addImage(logoFull,'PNG',M,20,84,84*444/1000)}catch(e){}}
+  else{font('x');doc.setFontSize(22);txt([255,255,255]);T('RICARDO AGUILAR',M,34)}
+  font('b');doc.setFontSize(9);txt(RED);
+  T('INFORME DE EVALUACIÓN Y PROGRESIÓN',M,168,{charSpace:1.6});
+  const nameParts=c.name.trim().split(/\s+/);
+  const nameLines=nameParts.length>1?[nameParts[0],nameParts.slice(1).join(' ')]:[nameParts[0]];
+  font('x');doc.setFontSize(42);txt([255,255,255]);
+  let ny=186;
+  nameLines.forEach(l=>{
+    let size=42;doc.setFontSize(size);
+    while(doc.getTextWidth(l)>CW-4&&size>20){size-=2;doc.setFontSize(size)}
+    T(l,M,ny);ny+=size*0.42;
+  });
+  font('n');doc.setFontSize(12);txt([161,161,170]);
+  T('Del '+fmtDateNice(d.startIso)+' al '+fmtDateNice(d.endIso),M,ny+4);
+  fill(RED);doc.rect(M,ny+11,22,1.2,'F');
+  font('b');doc.setFontSize(7);txt([161,161,170]);T('PREPARADO POR',M,PH-34,{charSpace:1.2});
+  font('b');doc.setFontSize(14);txt([255,255,255]);T(d.trainerName,M,PH-26);
+  font('n');doc.setFontSize(9);txt([161,161,170]);
+  T(d.contact||'Entrenador personal',M,PH-20);
+  T(fmtDateNice(today()),PW-M,PH-20,{align:'right'});
+
+  /* páginas interiores */
+  function newPage(){
+    doc.addPage();
+    fill([0,0,0]);doc.rect(0,0,PW,22,'F');
+    fill(RED);doc.rect(0,22,PW,1.2,'F');
+    if(logoMark){try{doc.addImage(logoMark,'PNG',M,4,14*560/333,14)}catch(e){}}
+    font('b');doc.setFontSize(8.5);txt([255,255,255]);T(pageName.toUpperCase(),PW-M,10.5,{align:'right',charSpace:1});
+    font('n');doc.setFontSize(7.5);txt([161,161,170]);
+    T(d.lastEval?('Evaluación '+d.evalNo+' · '+fmtDate(d.lastEval)):('Informe · '+fmtDate(today())),PW-M,15.5,{align:'right'});
+    y=34;
   }
-  function gap(n){y+=n}
-
-  const trainer=db.settings.trainer||{};
-  doc.setFillColor(36,69,232);doc.rect(0,0,PW,50,'F');
-  if(trainer.photo){try{doc.addImage(trainer.photo,'JPEG',PW-M-18,8,18,18);}catch(e){}}
-  doc.setTextColor(255,255,255);doc.setFont(undefined,'bold');doc.setFontSize(22);
-  doc.text('Informe de Progreso',M,25);
-  doc.setFontSize(13);doc.setFont(undefined,'normal');
-  doc.text(c.name,M,36);
-  doc.setFontSize(10);
-  doc.text('Generado el '+fmtDateLong(today()),M,43);
-  if(trainer.name)doc.text('Por '+trainer.name,PW-M,43,{align:'right'});
-  y=62;col(13,27,42);
-
-  h2('Resumen');
-  const age=calcAge(c.birthdate);
-  const first=c.weightInitial,lastM=ms[ms.length-1];
-  const curW=lastM&&lastM.weight!=null?lastM.weight:first;
-  kv('Edad',age!=null?age+' años':'—');
-  kv('Sexo',c.sex||'—');
-  kv('Nivel',c.level||'—');
-  kv('Objetivo',c.goal||'—');
-  kv('Inicio del plan',c.startDate?fmtDateLong(c.startDate):'—');
-  kv('Peso inicial',first!=null?fmtNum(first)+' kg':'—');
-  kv('Peso actual',curW!=null?fmtNum(curW)+' kg':'—');
-  if(first!=null&&curW!=null)kv('Diferencia de peso',(curW-first>0?'+':'')+fmtNum(curW-first)+' kg');
-  kv('Entrenamientos registrados',ss.length);
-  kv('Última sesión',ss.length?fmtDateLong(ss[0].date):'—');
-  gap(2);
-
-  h2('Ciclo de carga');
-  if(cy){
-    const info=SEM_INFO[cy.status];
-    kv('Semana actual','Semana '+cy.currentWeek+' de '+cy.weeks);
-    kv('Inicio del ciclo',fmtDateLong(cy.startDate));
-    kv('Semáforo de carga',info[1]+' (definido por el entrenador)');
-    if(cy.notes){label('Notas del ciclo:');para(cy.notes);}
-  } else {
-    para('Este cliente no tiene un ciclo de entrenamiento activo en este momento.');
+  const space=n=>{if(y+n>PH-22)newPage()};
+  function section(t){
+    space(16);
+    fill(RED);doc.rect(M,y-3.6,1.1,5,'F');
+    font('x');doc.setFontSize(9.5);txt(INK);T(t.toUpperCase(),M+4,y,{charSpace:1.3});
+    y+=8;
   }
-  if(pastCycles.length){
-    gap(2);label('Ciclos anteriores:');
-    pastCycles.forEach(x=>para('• '+fmtDate(x.startDate)+' · '+x.weeks+' semanas · '+SEM_INFO[x.status][1]+(x.notes?' — '+x.notes:'')));
+  function tri(x,yy,s,up,color){
+    fill(color);
+    if(up)doc.triangle(x,yy+s,x+s,yy+s,x+s/2,yy,'F');else doc.triangle(x,yy,x+s,yy,x+s/2,yy+s,'F');
   }
-  gap(2);
+  function arrowRight(x,yy,s,color){fill(color);doc.triangle(x,yy-s/2,x,yy+s/2,x+s,yy,'F')}
+  // "a -> b" alineado a la derecha; devuelve nada
+  function fromTo(xr,yy,a,b,colB){
+    font('n');doc.setFontSize(9.5);
+    const wa=doc.getTextWidth(a);font('b');const wb=doc.getTextWidth(b);
+    const ar=2.4,gap=2;
+    const total=wa+gap+ar+gap+wb;
+    let x=xr-total;
+    font('n');txt(GRY);T(a,x,yy);x+=wa+gap;
+    arrowRight(x,yy-1.1,ar,RED);x+=ar+gap;
+    font('b');txt(colB||INK);T(b,x,yy);
+  }
+  const hasCharts=d.weightPts.length>1;
 
-  h2('Progresión de medidas');
-  if(ms.length){
-    let any=false;
-    Object.keys(MFIELDS).forEach(k=>{
-      const vals=ms.filter(m=>m[k]!=null);
-      if(!vals.length)return;
-      any=true;
-      const f=vals[0][k],l=vals[vals.length-1][k],unit=MFIELDS[k][1];
-      const delta=l-f;
-      const deltaTxt=vals.length>1?` (${delta>=0?'+':''}${fmtNum(delta)}${unit})`:'';
-      kv(MFIELDS[k][0],fmtNum(f)+unit+' -> '+fmtNum(l)+unit+deltaTxt);
+  newPage();
+  /* Resumen */
+  if(!d.ms.length&&!d.exList.length){
+    section('Resumen');
+    font('n');doc.setFontSize(10);txt(INK);
+    doc.splitTextToSize('Aún no hay evaluaciones ni entrenamientos registrados para este cliente.',CW).forEach(l=>{T(l,M,y);y+=5.5});
+  }
+  const tiles=[];
+  if(d.stats.weight)tiles.push(['PESO',fmtNum(d.stats.weight.last),'kg',d.stats.weight.delta,'kg']);
+  if(d.stats.fat)tiles.push(['GRASA',fmtNum(d.stats.fat.last),'%',d.stats.fat.delta,'pts']);
+  if(d.stats.muscleKg)tiles.push(['MÚSCULO',fmtNum(d.stats.muscleKg.last),'kg',d.stats.muscleKg.delta,'kg']);
+  else if(d.stats.muscle)tiles.push(['MÚSCULO',fmtNum(d.stats.muscle.last),'%',d.stats.muscle.delta,'pts']);
+  if(tiles.length<3&&d.stats.imc)tiles.push(['IMC',fmtNum(d.stats.imc.last),'',d.stats.imc.delta,'']);
+  if(tiles.length){
+    section('Tu progreso en números');
+    const gap=4,tw=(CW-gap*(tiles.length-1))/tiles.length,th=27;
+    tiles.forEach((t,i)=>{
+      const x=M+i*(tw+gap);
+      fill([0,0,0]);doc.roundedRect(x,y,tw,th,3,3,'F');
+      font('b');doc.setFontSize(7);txt([161,161,170]);T(t[0],x+5,y+7,{charSpace:1});
+      font('x');doc.setFontSize(20);txt([255,255,255]);T(t[1],x+5,y+17);
+      const vw=doc.getTextWidth(t[1]);
+      font('n');doc.setFontSize(8);txt([161,161,170]);if(t[2])T(t[2],x+5+vw+1.2,y+17);
+      if(t[3]==null){font('n');doc.setFontSize(8);txt([161,161,170]);T('—',x+5,y+23)}
+      else if(t[3]===0){font('n');doc.setFontSize(8);txt([161,161,170]);T('sin cambio',x+5,y+23)}
+      else{
+        const down=t[3]<0;
+        tri(x+5,y+20.4,2.6,!down,down?BRED:[255,255,255]);
+        font('b');doc.setFontSize(8.5);txt(down?BRED:[255,255,255]);
+        T(fmtNum(Math.abs(t[3]))+(t[4]?' '+t[4]:''),x+9.2,y+23);
+      }
     });
-    if(!any)para('Aún no hay suficientes evaluaciones con medidas para mostrar progresión.');
-  } else {
-    para('Aún no hay evaluaciones registradas.');
+    y+=th+10;
   }
-  gap(2);
-
-  h2('Rendimiento destacado');
-  const exNames=[...new Set(ss.flatMap(s=>s.exercises.map(e=>e.name)))].sort((a,b)=>a.localeCompare(b,'es'));
-  if(exNames.length){
-    exNames.slice(0,14).forEach(name=>{
-      const rec=computeRecords(cid,name);
-      if(!rec)return;
-      kv(name,'Mejor: '+fmtNum(rec.bestWeight.w)+'×'+rec.bestWeight.r+' ('+fmtDate(rec.bestWeight.date)+')');
+  /* gráfica de peso */
+  if(hasCharts){
+    section('Peso corporal');
+    const bh=52;space(bh+6);
+    stroke(LGR);doc.setLineWidth(.25);doc.roundedRect(M,y,CW,bh,3,3,'S');
+    const px=M+10,pw=CW-20,py=y+10,ph=bh-22;
+    const ys=d.weightPts.map(p=>p.y);let mn=Math.min(...ys),mx=Math.max(...ys);
+    if(mn===mx){mn-=1;mx+=1}const pad=(mx-mn)*.18;mn-=pad;mx+=pad;
+    const ts=d.weightPts.map(p=>parseIso(p.d).getTime()),t0=ts[0],t1=ts[ts.length-1];
+    const X=i=>t1===t0?px+pw*i/(d.weightPts.length-1):px+pw*(ts[i]-t0)/(t1-t0);
+    const Y=v=>py+ph*(1-(v-mn)/(mx-mn));
+    stroke(LGR);doc.setLineWidth(.2);[0,.5,1].forEach(f=>doc.line(px,py+ph*f,px+pw,py+ph*f));
+    stroke(RED);doc.setLineWidth(.9);doc.setLineCap('round');doc.setLineJoin('round');
+    for(let i=1;i<d.weightPts.length;i++)doc.line(X(i-1),Y(d.weightPts[i-1].y),X(i),Y(d.weightPts[i].y));
+    const L=d.weightPts.length-1;
+    d.weightPts.forEach((p,i)=>{
+      if(i===L){fill(RED);doc.circle(X(i),Y(p.y),1.9,'F')}
+      else{fill([255,255,255]);stroke(RED);doc.setLineWidth(.6);doc.circle(X(i),Y(p.y),1.3,'FD')}
     });
-    if(exNames.length>14)para('… y '+(exNames.length-14)+' ejercicios más registrados.');
-  } else {
-    para('Aún no hay entrenamientos registrados.');
+    font('n');doc.setFontSize(8);txt(GRY);T(fmtNum(d.weightPts[0].y),X(0),Y(d.weightPts[0].y)-3,{align:'center'});
+    font('b');doc.setFontSize(9);txt(INK);T(fmtNum(d.weightPts[L].y),X(L),Y(d.weightPts[L].y)-3.5,{align:'center'});
+    font('n');doc.setFontSize(7.5);txt(GRY);T(fmtDate(d.weightPts[0].d),px,y+bh-4);T(fmtDate(d.weightPts[L].d),px+pw,y+bh-4,{align:'right'});
+    y+=bh+10;
   }
-  gap(2);
-
-  h2('Observaciones recientes');
-  const sessNotes=ss.filter(s=>s.note&&s.note.trim()).slice(0,8);
-  const measNotes=msDesc.filter(m=>m.note&&m.note.trim()).slice(0,5);
-  if(sessNotes.length){
-    label('De entrenamientos:');
-    sessNotes.forEach(s=>para('• '+fmtDate(s.date)+': '+s.note));
-    gap(1);
+  /* medidas */
+  if(d.meas.length){
+    section('Progresión de medidas');
+    space(12+d.meas.length*8);
+    fill([0,0,0]);doc.roundedRect(M,y,CW,8,2,2,'F');
+    font('b');doc.setFontSize(7);txt([255,255,255]);
+    T('MEDIDA',M+4,y+5.2,{charSpace:.9});T('INICIO',M+CW*.5,y+5.2,{align:'right',charSpace:.9});T('AHORA',M+CW*.72,y+5.2,{align:'right',charSpace:.9});T('CAMBIO',M+CW-4,y+5.2,{align:'right',charSpace:.9});
+    y+=8;
+    d.meas.forEach((m,i)=>{
+      space(9);
+      if(i%2===1){fill(ZEB);doc.rect(M,y,CW,8,'F')}
+      stroke(LGR);doc.setLineWidth(.2);doc.line(M,y+8,M+CW,y+8);
+      font('b');doc.setFontSize(9.5);txt(INK);T(m.label,M+4,y+5.4);
+      font('n');txt(GRY);T(fmtNum(m.first)+' '+m.unit,M+CW*.5,y+5.4,{align:'right'});
+      font('b');txt(INK);T(fmtNum(m.last)+' '+m.unit,M+CW*.72,y+5.4,{align:'right'});
+      if(m.delta!=null){font('x');txt(m.delta<0?DRED:INK);T((m.delta<0?'-':'+')+fmtNum(Math.abs(m.delta)),M+CW-4,y+5.4,{align:'right'})}
+      else{font('n');txt(GRY);T('—',M+CW-4,y+5.4,{align:'right'})}
+      y+=8;
+    });
+    y+=10;
   }
-  if(measNotes.length){
-    label('De evaluaciones:');
-    measNotes.forEach(m=>para('• '+fmtDate(m.date)+': '+m.note));
+  /* nota */
+  if(d.note){
+    font('n');doc.setFontSize(10);
+    const lines=doc.splitTextToSize(d.note,CW-14);
+    const bh=14+lines.length*5.2;
+    space(bh+4);
+    fill(ZEB);doc.roundedRect(M,y,CW,bh,2,2,'F');
+    fill(RED);doc.rect(M,y,1.4,bh,'F');
+    font('x');doc.setFontSize(7.5);txt(DRED);T('NOTA DE TU ENTRENADOR',M+7,y+7,{charSpace:1.2});
+    font('n');doc.setFontSize(10);txt([39,39,42]);
+    lines.forEach((l,i)=>T(l,M+7,y+13.5+i*5.2));
+    y+=bh+10;
   }
-  if(!sessNotes.length&&!measNotes.length)para('Sin observaciones registradas.');
-
-  const withPhotos=ms.filter(m=>(byMeasure[m.id]||[]).length);
-  if(withPhotos.length){
-    gap(2);h2('Fotos de progreso');
-    const beforeM=withPhotos[0],afterM=withPhotos[withPhotos.length-1];
-    para('Antes: '+fmtDateLong(beforeM.date)+'   ->   Después: '+fmtDateLong(afterM.date));
-    gap(2);
-    const angleW=(PW-2*M-8)/2;
-    PHOTO_ANGLES.forEach(([angle,lbl])=>{
-      const pb=(byMeasure[beforeM.id]||[]).find(p=>p.angle===angle);
-      const pa=(byMeasure[afterM.id]||[]).find(p=>p.angle===angle);
-      if(!pb&&!pa)return;
-      space(angleW+8);
-      doc.setFont(undefined,'bold');doc.setFontSize(10);col(13,27,42);doc.text(lbl,M,y);y+=5;
-      try{if(pb)doc.addImage(pb.data,'JPEG',M,y,angleW,angleW);}catch(e){}
-      try{if(pa)doc.addImage(pa.data,'JPEG',M+angleW+8,y,angleW,angleW);}catch(e){}
-      y+=angleW+6;
+  /* fotos */
+  if(d.photoPairs.length){
+    const ratio=await Promise.all(d.photoPairs.map(async p=>{
+      const s=p.before||p.after;const n=s?await imgNatural(s.data):null;return n?n.w/n.h:0.75;
+    }));
+    d.photoPairs.forEach((p,idx)=>{
+      const bh=82,gap=6,bw=(CW-gap)/2;
+      space((idx===0?16:6)+bh+14);
+      if(idx===0){section('Antes y después')}
+      font('b');doc.setFontSize(8);txt(GRY);T(p.label.toUpperCase(),M,y,{charSpace:1.1});y+=3;
+      [[p.before,'ANTES',false],[p.after,'AHORA',true]].forEach(([ph,lbl,now],k)=>{
+        const x=M+k*(bw+gap);
+        fill([17,17,20]);doc.roundedRect(x,y,bw,bh,2.5,2.5,'F');
+        if(ph){
+          const r=ratio[idx]||.75;
+          let w=bw-4,h=w/r;if(h>bh-4){h=bh-4;w=h*r}
+          try{doc.addImage(ph.data,'JPEG',x+(bw-w)/2,y+(bh-h)/2,w,h)}catch(e){}
+        }
+        if(now){stroke(RED);doc.setLineWidth(.6);doc.roundedRect(x,y,bw,bh,2.5,2.5,'S')}
+        font('b');doc.setFontSize(7.5);txt(now?DRED:GRY);
+        T(lbl+(ph?' · '+fmtDate(ph.date):''),x,y+bh+5,{charSpace:.9});
+      });
+      y+=bh+12;
     });
   }
-
-  if(trainer.name||trainer.bio||trainer.whatsapp||trainer.email||trainer.signature){
-    gap(3);h2('Entrenador');
-    if(trainer.bio)para(trainer.bio);
-    if(trainer.name)kv('Nombre',trainer.name);
-    if(trainer.whatsapp)kv('WhatsApp',trainer.whatsapp);
-    if(trainer.email)kv('Email',trainer.email);
-    if(trainer.signature){gap(2);label(trainer.signature)}
+  /* fuerza */
+  if(d.exList.length){
+    newPage();
+    section('Progresión de fuerza');
+    const s=d.star;
+    if(s){
+      const bh=44;space(bh+6);
+      fill([0,0,0]);doc.roundedRect(M,y,CW,bh,3,3,'F');
+      font('b');doc.setFontSize(7);txt(RED);T('EJERCICIO ESTRELLA',M+6,y+8,{charSpace:1.3});
+      font('x');doc.setFontSize(13);txt([255,255,255]);
+      const nm=doc.splitTextToSize(s.name,CW*.5-8)[0];T(nm,M+6,y+16);
+      // cifra grande
+      let x=M+6;const by=y+31;
+      font('x');doc.setFontSize(21);txt([255,255,255]);
+      if(s.pts.length>1){
+        T(fmtNum(s.first),x,by);x+=doc.getTextWidth(fmtNum(s.first))+3;
+        arrowRight(x,by-3.4,3.4,RED);x+=3.4+3;
+      }
+      T(fmtNum(s.last),x,by);x+=doc.getTextWidth(fmtNum(s.last))+1.4;
+      font('n');doc.setFontSize(9);txt([161,161,170]);T('kg',x,by);
+      if(s.pct!=null&&s.pct>0){font('b');doc.setFontSize(8.5);txt(BRED);T('+'+Math.round(s.pct*100)+' %',M+6,y+38.5)}
+      // mini gráfica
+      const gx=M+CW*.55,gw=CW*.45-8,gy=y+8,gh=bh-16;
+      if(s.pts.length>1){
+        const ys=s.pts.map(p=>p.y);let mn=Math.min(...ys),mx=Math.max(...ys);if(mn===mx){mn-=1;mx+=1}
+        const ts=s.pts.map(p=>parseIso(p.d).getTime()),t0=ts[0],t1=ts[ts.length-1];
+        const X=i=>t1===t0?gx+gw*i/(s.pts.length-1):gx+gw*(ts[i]-t0)/(t1-t0);
+        const Y=v=>gy+gh*(1-(v-mn)/(mx-mn));
+        stroke([50,50,56]);doc.setLineWidth(.2);[0,.5,1].forEach(f=>doc.line(gx,gy+gh*f,gx+gw,gy+gh*f));
+        stroke(RED);doc.setLineWidth(.9);doc.setLineCap('round');
+        for(let i=1;i<s.pts.length;i++)doc.line(X(i-1),Y(s.pts[i-1].y),X(i),Y(s.pts[i].y));
+        fill(RED);doc.circle(X(s.pts.length-1),Y(s.pts[s.pts.length-1].y),1.8,'F');
+      }
+      y+=bh+10;
+    }
+    if(d.improved.length){
+      section('Mejoras por ejercicio');
+      const mx=Math.max(...d.improved.map(x=>x.pct));
+      d.improved.slice(0,7).forEach(x=>{
+        space(14);
+        font('b');doc.setFontSize(9.5);txt(INK);T(doc.splitTextToSize(x.name,CW*.42)[0],M,y+3);
+        fromTo(M+CW-20,y+3,fmtNum(x.first),fmtNum(x.last)+' kg',INK);
+        font('x');doc.setFontSize(9);txt(DRED);T('+'+Math.round(x.pct*100)+' %',M+CW,y+3,{align:'right'});
+        fill(LGR);doc.roundedRect(M,y+6,CW,1.8,.9,.9,'F');
+        fill(RED);doc.roundedRect(M,y+6,Math.max(3,CW*x.pct/mx),1.8,.9,.9,'F');
+        y+=13;
+      });
+      y+=6;
+    }
+    if(d.records.length){
+      section('Récords recientes');
+      d.records.forEach(r=>{
+        space(12);
+        fill(RED);doc.circle(M+3,y+2,3,'F');
+        fill([255,255,255]);doc.circle(M+3,y+2,1.1,'F');
+        font('b');doc.setFontSize(10);txt(INK);T(doc.splitTextToSize(r.name,CW*.5)[0],M+10,y+1.6);
+        font('n');doc.setFontSize(8);txt(GRY);T(fmtDateNice(r.date),M+10,y+6);
+        font('x');doc.setFontSize(10);txt(INK);T(fmtNum(r.w)+' kg × '+r.r,M+CW,y+3.5,{align:'right'});
+        y+=12;
+      });
+      y+=4;
+    }
   }
+  /* plan actual */
+  if(d.cy){
+    section('Plan actual');
+    const info=SEM_INFO[d.cy.status];
+    font('n');doc.setFontSize(10);txt(INK);
+    T('Semana '+d.cy.currentWeek+' de '+d.cy.weeks+' · carga '+info[1].toLowerCase(),M,y);y+=6;
+    if(d.cy.notes){doc.splitTextToSize(d.cy.notes,CW).forEach(l=>{space(6);txt(GRY);T(l,M,y);y+=5.3})}
+    y+=6;
+  }
+  /* cierre con marca */
+  space(40);
+  const ch=32;
+  fill([0,0,0]);doc.roundedRect(M,y,CW,ch,3,3,'F');
+  fill(RED);doc.rect(M,y+ch-1.4,CW,1.4,'F');
+  if(logoFull){try{doc.addImage(logoFull,'PNG',M+6,y+4,46,46*444/1000)}catch(e){}}
+  font('b');doc.setFontSize(9);txt([255,255,255]);
+  T(d.trainerName,M+CW-6,y+12,{align:'right'});
+  font('n');doc.setFontSize(8);txt([161,161,170]);
+  if(trainer.whatsapp)T(trainer.whatsapp,M+CW-6,y+18,{align:'right'});
+  if(trainer.email)T(trainer.email,M+CW-6,y+23,{align:'right'});
+  if(!trainer.whatsapp&&!trainer.email)T('Entrenador personal',M+CW-6,y+18,{align:'right'});
+  y+=ch+4;
+  if(trainer.signature){font('n');doc.setFontSize(9);txt(GRY);doc.splitTextToSize(trainer.signature,CW).forEach(l=>{space(6);T(l,M,y+4);y+=5})}
 
+  /* pie y numeración */
   const total=doc.getNumberOfPages();
-  for(let i=1;i<=total;i++){
+  for(let i=2;i<=total;i++){
     doc.setPage(i);
-    doc.setFont(undefined,'normal');doc.setFontSize(8);doc.setTextColor(140);
-    doc.text(c.name+' · Página '+i+' de '+total,M,PH-10);
-    doc.text('Generado el '+fmtDateLong(today()),PW-M,PH-10,{align:'right'});
+    stroke(LGR);doc.setLineWidth(.2);doc.line(M,PH-14,PW-M,PH-14);
+    font('b');doc.setFontSize(7.5);txt(INK);T(d.trainerName,M,PH-9);
+    font('n');txt(GRY);T(' · Entrenador personal',M+doc.getTextWidth(d.trainerName)+(fontsOK?0.5:0.5),PH-9);
+    font('b');txt(INK);T((i)+' / '+total,PW-M,PH-9,{align:'right'});
   }
   return doc;
 }
@@ -1376,6 +1927,7 @@ function act(a,ds,t,e){
     case 'clearEvalPhoto':pendingEvalPhotos[ds.a]=null;refreshEvalPhotoSlot(ds.a);break;
     case 'comparePhotos':comparePhotosModal(ds.id);break;
     case 'genReport':sharePDF(ds.id);break;
+    case 'openReport':openReport(ds.id);break;
     case 'cmpPick':{
       const b=ds.which==='before'?ds.id:ds.before;
       const a=ds.which==='after'?ds.id:ds.after;

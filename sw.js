@@ -1,5 +1,5 @@
-const CACHE='registro-clientes-v7';
-const ASSETS=['./index.html','./manifest.json','./icon-192.png','./icon-512.png','./jspdf.umd.min.js'];
+const CACHE='registro-clientes-v8';
+const ASSETS=['./index.html','./manifest.json','./icon-192.png','./icon-512.png','./jspdf.umd.min.js','./brand/logo-full.png','./brand/logo-mark.png','./brand/montserrat-400.woff2','./brand/montserrat-600.woff2','./brand/montserrat-700.woff2','./brand/montserrat-800.woff2','./brand/Montserrat-Regular.ttf','./brand/Montserrat-Bold.ttf','./brand/Montserrat-ExtraBold.ttf'];
 
 self.addEventListener('install',e=>{
   e.waitUntil(caches.open(CACHE).then(c=>c.addAll(ASSETS)).catch(()=>{}));
