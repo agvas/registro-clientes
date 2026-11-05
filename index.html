@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content">
-<meta name="theme-color" content="#2445e8">
+<meta name="theme-color" content="#000000">
 <link rel="manifest" href="manifest.json">
 <link rel="icon" href="icon-192.png">
 <link rel="apple-touch-icon" href="icon-192.png">
@@ -11,24 +11,24 @@
 <script defer src="jspdf.umd.min.js"></script>
 <style>
 :root{
-  --bg:#eef0f4;--card:#ffffff;--text:#0d1b2a;--muted:#5d6b7e;--line:#dde2ea;
-  --accent:#2445e8;--accent-soft:#e3e8fd;--on-accent:#ffffff;
-  --danger:#c0322b;--warn-bg:#fff1dc;--warn-tx:#7a4300;--good:#12803a;
-  --disp:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --bg:#f4f4f5;--card:#ffffff;--text:#111114;--muted:#5f5f68;--line:#e4e4e7;
+  --accent:#D40009;--accent-soft:#fde8e9;--on-accent:#ffffff;
+  --danger:#a8231c;--warn-bg:#fff1dc;--warn-tx:#7a4300;--good:#12803a;
+  --disp:'Montserrat',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
   --body:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
   box-sizing:border-box;
   padding-top:env(safe-area-inset-top,0px);
 }
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){
-    --bg:#0b1220;--card:#141d2e;--text:#eaf0fa;--muted:#93a1b8;--line:#24304a;
-    --accent:#7c9cff;--accent-soft:#1b2952;--on-accent:#0b1220;
+    --bg:#000000;--card:#0F0F11;--text:#ffffff;--muted:#A1A1AA;--line:#232327;
+    --accent:#F0010A;--accent-soft:#2a0709;--on-accent:#ffffff;
     --danger:#ff8a80;--warn-bg:#3a2a10;--warn-tx:#f9c27c;--good:#5fd68a;
   }
 }
 :root[data-theme="dark"]{
-  --bg:#0b1220;--card:#141d2e;--text:#eaf0fa;--muted:#93a1b8;--line:#24304a;
-  --accent:#7c9cff;--accent-soft:#1b2952;--on-accent:#0b1220;
+  --bg:#000000;--card:#0F0F11;--text:#ffffff;--muted:#A1A1AA;--line:#232327;
+  --accent:#F0010A;--accent-soft:#2a0709;--on-accent:#ffffff;
   --danger:#ff8a80;--warn-bg:#3a2a10;--warn-tx:#f9c27c;--good:#5fd68a;
 }
 html{scroll-padding-top:env(safe-area-inset-top,0px);-webkit-text-size-adjust:100%}
@@ -51,7 +51,8 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 .top h1{flex:1}
 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 18px;border-radius:12px;background:var(--accent);color:var(--on-accent);font-weight:700}
 .btn.ghost{background:var(--card);color:var(--text);box-shadow:inset 0 0 0 1px var(--line)}
-.btn.danger{background:var(--danger);color:#fff}
+.btn.danger{background:transparent;color:var(--danger);box-shadow:inset 0 0 0 1.5px var(--danger)}
+.toplogo{height:34px;width:auto;border-radius:8px;background:#000;flex:none}
 .btn.sm{min-height:38px;padding:0 14px;font-size:15px}
 .btn.full{width:100%}
 .btn.big{min-height:54px;font-size:18px;width:100%;margin:6px 0 14px}
@@ -145,7 +146,7 @@ details .body{margin-top:10px;padding-top:10px;border-top:1px solid var(--line)}
 .sem{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;padding:3px 10px;border-radius:12px}
 .sem.g{background:#12803a1a;color:var(--good)}
 .sem.r{background:#c0322b1a;color:var(--danger)}
-.sem.b{background:#2445e81a;color:var(--accent)}
+.sem.b{background:#F0010A1a;color:var(--accent)}
 .sem.y{background:#8a6d001a;color:#8a6d00}
 .sem.n{background:var(--line);color:var(--muted)}
 .dot{width:9px;height:9px;border-radius:50%;flex:none}
@@ -590,7 +591,7 @@ function dashboardHTML(){
   const evalPend=act.filter(c=>{const ms=clientMeasures(c.id);return !ms.length||daysSince(ms[ms.length-1].date)>=30}).length;
   const attention=act.filter(c=>{const ss=clientSessions(c.id);return !ss.length||daysSince(ss[0].date)>=14});
 
-  let h=`<div class="top"><h1>Inicio</h1></div>`;
+  let h=`<div class="top"><h1>Inicio</h1><img class="toplogo" src="brand/logo-mark.png" alt="Ricardo Aguilar"></div>`;
   if(!storageOK)h+=`<div class="banner warn">Este navegador no permite guardar datos. Usa «Más → Respaldo» para no perder nada.</div>`;
   h+=backupBanner();
   if(db.draft){
@@ -1016,7 +1017,7 @@ async function reportData(cid){
 }
 
 /* --- pantalla --- */
-const APP_VERSION='9';
+const APP_VERSION='10';
 let rpState=null;
 const rpSigned=n=>(n<0?'−':n>0?'+':'')+fmtNum(Math.abs(n));
 function rpLine(pts,label){

@@ -1,4 +1,4 @@
-const CACHE='registro-clientes-v9';
+const CACHE='registro-clientes-v10';
 const ASSETS=['./index.html','./manifest.json','./icon-192.png','./icon-512.png','./jspdf.umd.min.js','./brand/logo-full.png','./brand/logo-mark.png','./brand/montserrat-400.woff2','./brand/montserrat-600.woff2','./brand/montserrat-700.woff2','./brand/montserrat-800.woff2','./brand/Montserrat-Regular.ttf','./brand/Montserrat-Bold.ttf','./brand/Montserrat-ExtraBold.ttf'];
 
 self.addEventListener('install',e=>{
