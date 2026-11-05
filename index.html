@@ -449,6 +449,21 @@ function navHTML(){
 }
 
 /* ---------- dashboard (Inicio) ---------- */
+function backupDays(){const d=db.settings.backupDays;return d===0?0:(d||7)}
+function backupAgo(){return db.lastBackup?Math.floor((Date.now()-db.lastBackup)/864e5):null}
+function backupDue(){
+  const n=backupDays();
+  if(!n||!db.clients.length)return false;
+  if(db.settings.backupSnooze&&Date.now()<db.settings.backupSnooze)return false;
+  const a=backupAgo();
+  return a===null||a>=n;
+}
+function backupBanner(){
+  if(!backupDue())return '';
+  const a=backupAgo();
+  const msg=a===null?'Aún no has hecho ningún respaldo.':'Tu último respaldo fue hace '+a+(a===1?' día.':' días.');
+  return `<div class="banner warn" style="flex-direction:column;align-items:stretch;gap:10px"><div><b>Hora de respaldar tus datos</b><div class="m" style="color:inherit;margin-top:2px">${msg} Guárdalo en tu Google Drive para no perder clientes ni fotos.</div></div><div class="btns"><button class="btn sm" data-act="fullBackupShare">Respaldar ahora</button><button class="btn ghost sm" data-act="snoozeBackup">Más tarde</button></div></div>`;
+}
 function dashboardHTML(){
   const act=activeClients();
   const mon=mondayOf(new Date());
@@ -460,6 +475,7 @@ function dashboardHTML(){
 
   let h=`<div class="top"><h1>Inicio</h1></div>`;
   if(!storageOK)h+=`<div class="banner warn">Este navegador no permite guardar datos. Usa «Más → Respaldo» para no perder nada.</div>`;
+  h+=backupBanner();
   if(db.draft){
     const c=getClient(db.draft.clientId);
     h+=`<button class="banner" data-act="goSession"><div><b>Sesión en curso</b> con ${esc(c?c.name:'cliente')}</div><span>Continuar</span></button>`;
@@ -1067,6 +1083,17 @@ function masHTML(){
   let h=`<div class="top"><h1>Más</h1></div>`;
   h+=`<button class="card row" data-act="backup"><div class="grow"><div class="t">Respaldo</div><div class="m">Copiar o restaurar tus datos</div></div><span class="m">Abrir</span></button>`;
   h+=`<button class="card row" data-act="fullBackupModal"><div class="grow"><div class="t">Respaldo completo (con fotos)</div><div class="m">Descarga un archivo con todo, incluidas las fotos de progreso</div></div><span class="m">Abrir</span></button>`;
+  {
+    const a=backupAgo(),bd=backupDays();
+    h+=`<div class="card"><b class="t">Recordatorio de respaldo</b><div class="m" style="margin:4px 0 8px">${a===null?'Aún no has hecho ningún respaldo.':'Último respaldo: '+(a===0?'hoy':'hace '+a+(a===1?' día':' días'))+'.'} Al tocar «Guardar en Drive» elige Google Drive en el menú de compartir.</div>
+    <div class="seg" style="margin:0 0 10px">
+      <button class="${bd===7?'on':''}" data-act="setBackupDays" data-d="7">Cada semana</button>
+      <button class="${bd===15?'on':''}" data-act="setBackupDays" data-d="15">15 días</button>
+      <button class="${bd===30?'on':''}" data-act="setBackupDays" data-d="30">Cada mes</button>
+      <button class="${bd===0?'on':''}" data-act="setBackupDays" data-d="0">No avisar</button>
+    </div>
+    <button class="btn full" data-act="fullBackupShare">Guardar en Drive ahora</button></div>`;
+  }
   h+=`<div class="card"><b class="t">Escala de esfuerzo</b><div class="m" style="margin:4px 0 8px">Se usa al registrar series nuevas. Las sesiones ya guardadas conservan la escala con la que se registraron.</div>
     <div class="seg" style="margin:0">
       <button class="${db.settings.rirMode==='RIR'?'on':''}" data-act="setRirMode" data-m="RIR">RIR (reps en reserva)</button>
@@ -1327,6 +1354,8 @@ function act(a,ds,t,e){
     case 'chip':{const st=db.draft.exercises[+ds.i].sets[+ds.j];st.rir=(String(st.rir)===ds.v)?'':ds.v;saveSoon();render();break}
     case 'copyPrev':copyPrevSession();break;
     case 'exHistory':exHistoryModal(ds.n);break;
+    case 'setBackupDays':db.settings.backupDays=parseInt(ds.d,10);save();render();break;
+    case 'snoozeBackup':db.settings.backupSnooze=Date.now()+864e5;save();render();break;
     case 'setRirMode':db.settings.rirMode=ds.m;save();render();break;
     case 'finish':openSessionSummary();break;
     case 'confirmFinish':finishSession();break;
@@ -1566,7 +1595,7 @@ async function copyBackup(){
   let ok=false;
   try{await navigator.clipboard.writeText(ta.value);ok=true}catch(e){}
   if(!ok){try{ta.focus();ta.select();ok=document.execCommand('copy')}catch(e){}}
-  if(ok){db.lastBackup=Date.now();save();toast('Respaldo copiado')}
+  if(ok){db.lastBackup=Date.now();save();toast('Respaldo copiado');render()}
   else{ta.focus();ta.select();toast('Mantén presionado el texto y elige Copiar')}
 }
 function restoreBackup(){
@@ -1601,8 +1630,8 @@ async function shareFullBackup(){
   const filename='respaldo-registro-clientes-'+today()+'.json';
   const blob=new Blob([json],{type:'application/json'});
   const result=await offerFile(filename,blob);
-  if(result==='saved'){db.lastBackup=Date.now();save();toast('Respaldo descargado')}
-  else if(result==='shared'){db.lastBackup=Date.now();save();toast('Respaldo compartido')}
+  if(result==='saved'){db.lastBackup=Date.now();save();toast('Respaldo descargado');render()}
+  else if(result==='shared'){db.lastBackup=Date.now();save();toast('Respaldo compartido');render()}
   else if(result==='error')toast('No se pudo generar el archivo');
 }
 function restoreFromFile(file){
